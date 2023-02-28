@@ -171,6 +171,8 @@ public abstract class Board {
 	 * @return true if there is a legal play left on the board;
 	 *         false otherwise.
 	 */
+	
+	
 	public abstract boolean anotherPlayIsPossible();
 
 	/**
