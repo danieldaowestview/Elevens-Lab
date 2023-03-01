@@ -71,7 +71,7 @@ public class ElevensBoard extends Board {
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		for (int i = 0; i < cardIndexes().size(); i++) {
-			for (int j = i; j < cardIndexes().size() - i; j++) {
+			for (int j = i; j < cardIndexes().size(); j++) {
 				if (cardAt(cardIndexes().get(i)).pointValue() + cardAt(cardIndexes().get(j)).pointValue() == 11) {
 					return true;
 				}
@@ -99,9 +99,9 @@ public class ElevensBoard extends Board {
 
 	// checks if card is face card
 
-	public boolean ifFace(int i) {
-		if (cardAt(cardIndexes().get(i)).rank() == "jack" || cardAt(cardIndexes().get(i)).rank() == "king"
-				|| cardAt(cardIndexes().get(i)).rank() == "queen") {
+	public boolean ifFace(int i, List<Integer> selectedCards) {
+		if (cardAt(selectedCards.get(i)).rank() == "jack" || cardAt(selectedCards.get(i)).rank() == "king"
+				|| cardAt(selectedCards.get(i)).rank() == "queen") {
 			return true;
 		}
 		return false;
@@ -120,6 +120,12 @@ public class ElevensBoard extends Board {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		int sum = 0;
 		for (int i = 0; i < selectedCards.size(); i++) {
+			if(selectedCards.size() == 3 || selectedCards.size() == 1) {
+				return false;
+			}
+			if(ifFace(i, selectedCards)) {
+				return false;
+			}
 			sum += cardAt(selectedCards.get(i)).pointValue();
 		}
 		if (sum == 11) {
