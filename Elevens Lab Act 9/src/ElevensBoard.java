@@ -91,7 +91,7 @@ public class ElevensBoard extends Board {
 				jack++;
 			}
 		}
-		if (king == 1 && queen == 1 && jack == 1) {
+		if (king >= 1 && queen >= 1 && jack >= 1) {
 			return true;
 		}
 		return false;
