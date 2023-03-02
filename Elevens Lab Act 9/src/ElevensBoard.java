@@ -119,10 +119,10 @@ public class ElevensBoard extends Board {
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		int sum = 0;
+		if(selectedCards.size() != 2) {
+			return false;
+		}
 		for (int i = 0; i < selectedCards.size(); i++) {
-			if(selectedCards.size() == 3 || selectedCards.size() == 1) {
-				return false;
-			}
 			if(ifFace(i, selectedCards)) {
 				return false;
 			}
@@ -147,6 +147,9 @@ public class ElevensBoard extends Board {
 		int king = 0;
 		int jack = 0;
 		int queen = 0;
+		if(selectedCards.size() != 3) {
+			return false;
+		}
 		for (int i = 0; i < selectedCards.size(); i++) {
 			if (cardAt(selectedCards.get(i)).rank() == "king") {
 				king++;
